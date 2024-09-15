@@ -1,138 +1,106 @@
+## Platform Specifics
+The following setting options available on both iOS and Android: openAppSettings, openWIFISettings, openLocationSettings, openSecuritySettings, openBluetoothSettings, openDataRoamingSettings, openDateSettings, openDisplaySettings, openNotificationSettings, openSoundSettings
 
-## 5.1.1
+### iOS
+All three options open the current 'app' settings section if there are settings defined.  If no current settings are defined for the app the iPhone Settings Screen will be displayed.
 
-- Fixed a build issue on iOS for the example app.
+### Android
+Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
-## 5.1.0
-Add `AppSettingsType.appLocale` to open the app language settings (only available on Android 13 and higher).
-
-## 5.0.0
-
-- **BREAKING CHANGES**
-    - The `openAppSettings()` method now accepts a single settings type. This replaces the various individual methods.
-    - The `callback` argument has been removed. Instead, await `openAppSettings()`.
-    - Flutter 3.7 is now required.
-
-- Updated the plugin to the new plugin template, using the platform interface.
-- Fixed a typo in the application identifier.
-- Bumped the Android SDK version to 33
-- Added the `namespace` property to the build.gradle for compatibility with Gradle 8
-- Added support for notification settings on iOS 16
-- Added support for Android Q Settings Panels
-- Relaxes the Android Bluetooth settings (`Settings.ACTION_BLUETOOTH_SETTINGS`) requirement. The Bluetooth permission is no longer required.
+## 4.3.1
+Patch for user's pipelines (reverting back breaking changes of 4.3.0)
 
 ## 4.2.1
-
-- Fixed the async result from `openAppSettings()` returning after the app settings have been processed on the native side.
+Adjusting Flutter async result to ensure it fires after initial native side call.
 
 ## 4.2.0
-
-- Added the ability to provide an optional custom callback function to `openAppSettings()`.
+Ability to provide optional custom callback function within settings request.
 
 ## 4.1.9
-
-- Added the ability to open APN settings.
+Ability to open APN settings.
 
 ## 4.1.8
-
-- Increase the Dart SDK upper bound to `<3.0.0`
+Setting dart SDK for more future support < 3.0.0
 
 ## 4.1.7
-
-- Added support for Flutter <=3.0.1.
+Add support to Flutter <=3.0.1.
 
 ## 4.1.6
-
-- Added the ability to open personal hotspot settings.
-- Added the ability to open custom intents.
+Ability to open personal hotspot settings.
+Ability to open custom intents.
 
 ## 4.1.5
-
-- Added the ability to open the developer settings. **This requires enabling the developer settings to work correctly**
+Ability to open developer settings.  ** App user will need to have enabled developer mode on their device in order for this feature to open the developer settings screen.
 
 ## 4.1.4
-
-- Migrate from jcenter() to mavenCentral()
+Migration from jcenter() to mavenCentral()
 
 ## 4.1.3
-
-- Added Android Open Lock & Password settings.
+Added Android open Lock & Password settings.
 
 ## 4.1.2
-
-- Updated Android compileSdkVersion to 31.
+Update Android compileSdkVersion to 31.
+Removed deprecated calls in Registrar
+Migrated plugin to v1.12: https://docs.flutter.dev/development/packages-and-plugins/plugin-api-migration
 
 ## 4.1.1
-
-- Added the ability to open VPN settings.
-- Added the ability to open the device settings.
+Ability to open VPN settings.
+Ability to open device settings screen.
 
 ## 4.1.0
-
-- Added null-safety support.
-- Added the ability to open settings as a new task on Android.
+Null safety support.
+Ability to open settings as a new task on Android.
+Updates to README.
 
 ## 4.0.4
-
-- Updated the plugin to support Android embedding v2 in Flutter 1.12.
+Updated plugin to support android new package api for post 1.12 flutter.
 
 ## 4.0.3
-
-- Fixed a bug in openNotificationSettings for Android.
+Bug fix for Android openNotificationSettings.
 
 ## 4.0.2
-
-- Added in NFC settings access for Android. iOS will still rely on App Settings.
+Adding in NFC settings access for Android. iOS will still rely on App Settings.
 
 ## 4.0.1+1
-
-- Updated Android compileSdkVersion to 30.
+Update Android compileSdkVersion to 30.
 
 ## 4.0.1
-
-- Added Battery Optimization settings access for Android. iOS will still rely on App Settings.
+Added Battery Optimization settings access for Android.  iOS will still rely on App Settings.
 
 ## 4.0.0
+Updates Gradle wrapper distribution from 4.6 -> 6.2.2
 
-- Updated Gradle wrapper distribution from 4.6 -> 6.2.2
-- Updated Kotlin plugin version from 1.3.50 -> 1.3.70
-- Updated Android Gradle plugin from 3.5.1 -> 3.6.1
-- Updated compileSdkVersion from 28 -> 'android-R'
-- Removed generated and non-essential files
-- Updated .gitignore
-- Fixed the example app, which was not working correctly.
+Updates Kotlin plugin version from 1.3.50 -> 1.3.70
+
+Updates Android Gradle plugin from 3.5.1 -> 3.6.1
+
+Updates compileSdkVersion from 28 -> 'android-R'
+
+Also removes generated/non-essential files, updates .gitignore to the latest flutter create standard and "fixes" faulty example test. Tested and working on Android R. Should probably be tested on lower API devices as well.
 
 ## 3.0.1
-
-- Added Internal Storage settings access for Android.  iOS will still rely on App Settings.
+Added Internal Storage settings access for Android.  iOS will still rely on App Settings.
 
 ## 3.0.0+1
-
-- Updated plugin version in `.podspec`.
+Update plugin version in `.podspec`
 
 ## 3.0.0
-
-- Upgraded to Swift version: 5.0.1 - This version will only work on projects running Swift 5.0.1
-
-## 2.0.2
-
-- Legacy Swift 4 support.
+Upgrade to Swift version: 5.0.1 - This version will only work on projects running Swift 5.0.1
 
 ## 2.0.2
+Legacy Swift 4 support.
 
-- Added Date, Display, Notification, and Sound settings access for Android. iOS will still rely on App Settings.
+## 2.0.2
+Added Date, Display, Notification, and Sound settings access for Android.  iOS will still rely on App Settings.
 
 ## 2.0.1+1
-
-- Added Bluetooth & Data Roaming settings access for Android (more to come). iOS will still rely on App Settings.
+Added Bluetooth & Data Roaming settings access for Android (more to come).  iOS will still rely on App Settings.
 
 ## 2.0.0
-
-- Updated AGP and migrate to `AndroidX`.
+Update AGP, migrate to `AndroidX`
 
 ## 1.0.6+2
-
-- Added missing `podspec` description.
+Added missing `podspec` description
 
 ## 1.0.6+1
   ***iOS TIP: If using Objective-C for iOS in your project, you will need to add `use_frameworks!` to your `Runner project podfile` in order to use this Swift plugin:***
@@ -142,17 +110,18 @@ Add `AppSettingsType.appLocale` to open the app language settings (only availabl
 
 ## 1.0.6
 
-- Added openAppSettings() to access platform specific 'app' settings menu.
+Add openAppSettings() to access platform specific 'app' settings menu.
 
 ## 1.0.5
 
-- Ensure the plugin stays compatible with iOS8+.
-- Declare Swift compatibility version 4.2.
+Ensure the plugin stays compatible with iOS8+.
+Declare Swift compatibility version 4.2.
 
 ## 1.0.4
 
-- Upgraded Kotlin version from: ext.kotlin_version = '1.2.71' to ext.kotlin_version = '1.3.20'
+Upgrading Kotlin version from: ext.kotlin_version = '1.2.71' to ext.kotlin_version = '1.3.20'
+
 
 ## 1.0.3
 
-- Added additional documentation.
+Adding additional documentation.
